@@ -1,0 +1,16 @@
+set_property PACKAGE_PIN A11 [get_ports o_pwmDataTri]
+set_property PACKAGE_PIN D12 [get_ports o_pwmEnable]
+
+set_property IOSTANDARD LVCMOS33 [get_ports o_pwmDataTri]
+set_property IOSTANDARD LVCMOS33 [get_ports o_pwmEnable]
+
+set_property PACKAGE_PIN F5 [get_ports o_pdmLeftNotRight]
+set_property IOSTANDARD LVCMOS33 [get_ports o_pdmLeftNotRight]
+set_property IOSTANDARD LVCMOS33 [get_ports i_pdmData]
+set_property PACKAGE_PIN H5 [get_ports i_pdmData]
+set_property IOSTANDARD LVCMOS33 [get_ports o_pdmClk]
+set_property PACKAGE_PIN J5 [get_ports o_pdmClk]
+set_property IOSTANDARD LVCMOS33 [get_ports i_nreset]
+set_property PACKAGE_PIN E3 [get_ports i_clk100]
+set_property IOSTANDARD LVCMOS33 [get_ports i_clk100]
+set_property PACKAGE_PIN C12 [get_ports i_nreset]

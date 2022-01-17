@@ -1,0 +1,4 @@
+{
+  "VhdlLinter.ports.outRegex": "^o_",
+  "VhdlLinter.ports.inRegex": "^i_"
+}
