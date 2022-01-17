@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 
 entity sdft_top is
   generic (
-    g_N : integer := 512
+    g_N : integer
     );
   port (
     i_clk   : in std_ulogic;
@@ -68,7 +68,8 @@ begin
 
       s_axis_a_tvalid => i_axisValid,
       s_axis_a_tready => o_axisReady,
-      s_axis_a_tdata  => i_axisData,
+      s_axis_a_tdata(15 downto 0)  => i_axisData,
+      s_axis_a_tdata(31 downto 16)  => (others => '0'),
 
       m_axis_result_tvalid => s_axisFloatValid,
       m_axis_result_tready => s_axisFloatReady,
@@ -84,13 +85,13 @@ begin
       s_axis_tready => s_axisFloatReady,
       s_axis_tdata  => s_axisFloatData,
 
-      m_axis_tvalid(0)          => s_axisNewValueValid,
-      m_axis_tready(0)          => r_axisNewValueReady,
-      m_axis_tdata(31 downto 0) => s_axisNewValueData,
-
       m_axis_tvalid(1)           => s_axisPreFifoValid,
+      m_axis_tvalid(0)          => s_axisNewValueValid,
       m_axis_tready(1)           => s_axisPreFifoReady,
-      m_axis_tdata(63 downto 32) => s_axisPreFifoData
+      m_axis_tready(0)          => r_axisNewValueReady,
+      m_axis_tdata(63 downto 32) => s_axisPreFifoData,
+      m_axis_tdata(31 downto 0) => s_axisNewValueData
+
       );
 
   inst_axisFifo : entity work.axisFifo
@@ -109,6 +110,9 @@ begin
 
 
   inst_sdft : entity work.sdft
+    generic map (
+      g_N => g_N
+      )
     port map (
       i_clk   => i_clk,
       i_reset => i_reset,
@@ -170,7 +174,7 @@ begin
       end if;
 
 
-      if r_axisNewValueReady and s_axisNewValueValid and r_countValues < g_N then
+      if r_axisNewValueReady = '1' and s_axisNewValueValid = '1' and r_countValues < g_N then
         r_countValues <= r_countValues + 1;
 
         r_axisValid         <= '1';

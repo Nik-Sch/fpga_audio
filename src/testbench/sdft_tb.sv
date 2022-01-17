@@ -5,10 +5,10 @@ module sdft_tb;
   parameter integer testFs = 24000;
   parameter integer testF1 = 600;
   parameter integer testF2 = 10000;
-  parameter real testTime = 0.0853;
+  parameter real testTime = 0.085;
 
   typedef struct {
-    logic signed [11:0] data[testFs*testTime-1:0];
+    logic signed [11:0] data[$rtoi(testFs*testTime-1):0];
     } t_testData;
 
   function t_testData createTestData();
@@ -83,8 +83,10 @@ module sdft_tb;
 // freqWrImag
 // freqWrAddr
 // freqWrEn
-    int realFD = $fopen("real.data", "w");
-    int complexFD = $fopen("complex.data", "w");
+    int realFD;
+    int imagFD;
+    realFD = $fopen("real.data", "w");
+    imagFD = $fopen("complex.data", "w");
 
     for (int i = 0; i < $size(testData.data); i += 1) begin
       for (int n = 0; n < 512; n =+ 1) begin
@@ -103,7 +105,7 @@ module sdft_tb;
     end
 
     $fclose(realFD);
-    $fclose(complexFD);
+    $fclose(imagFD);
   end
 
 endmodule

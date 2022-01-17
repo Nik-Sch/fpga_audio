@@ -120,17 +120,17 @@ begin
       aclk    => i_clk,
       aresetn => not i_reset,
 
-      s_axis_tvalid => s_axisQRealData,
+      s_axis_tvalid => s_axisQRealValid,
       s_axis_tready => s_axisQRealReady,
-      s_axis_tdata  => s_axisQRealValid,
+      s_axis_tdata  => s_axisQRealData,
 
-      m_axis_tvalid(0)          => o_axisQrealValid,
-      m_axis_tready(0)          => i_axisQrealReady,
-      m_axis_tdata(31 downto 0) => o_axisQrealData,
-
+      m_axis_tvalid(0)           => o_axisQrealValid,
       m_axis_tvalid(1)           => s_axisQRealBramValid,
+      m_axis_tready(0)           => i_axisQrealReady,
       m_axis_tready(1)           => r_axisQRealBramReady,
+      m_axis_tdata(31 downto 0)  => o_axisQrealData,
       m_axis_tdata(63 downto 32) => s_axisQRealBramData
+
       );
 
   inst_axisSplitQImag : entity work.axisBroadcaster
@@ -138,17 +138,17 @@ begin
       aclk    => i_clk,
       aresetn => not i_reset,
 
-      s_axis_tvalid => s_axisQImagData,
+      s_axis_tvalid => s_axisQImagValid,
       s_axis_tready => s_axisQImagReady,
-      s_axis_tdata  => s_axisQImagValid,
+      s_axis_tdata  => s_axisQImagData,
 
-      m_axis_tvalid(0)          => o_axisQImagValid,
-      m_axis_tready(0)          => i_axisQImagReady,
-      m_axis_tdata(31 downto 0) => o_axisQImagData,
-
+      m_axis_tvalid(0)           => o_axisQImagValid,
       m_axis_tvalid(1)           => s_axisQImagBramValid,
+      m_axis_tready(0)           => i_axisQImagReady,
       m_axis_tready(1)           => r_axisQImagBramReady,
+      m_axis_tdata(31 downto 0)  => o_axisQImagData,
       m_axis_tdata(63 downto 32) => s_axisQImagBramData
+
       );
 
   inst_frequencyRam : entity work.frequencyRam
