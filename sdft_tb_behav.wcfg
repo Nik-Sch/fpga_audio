@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="sdft_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="sdft_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="204,357.803333 us"></ZoomStartTime>
+      <ZoomEndTime time="206,504.803334 us"></ZoomEndTime>
+      <Cursor1Time time="206,146.970000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="326"></NameColumnWidth>
+      <ValueColumnWidth column_width="145"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="13" />
+   <wvobject type="logic" fp_name="/sdft_tb/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sdft_tb/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sdft_tb/axisReady">
+      <obj_property name="ElementShortName">axisReady</obj_property>
+      <obj_property name="ObjectShortName">axisReady</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sdft_tb/axisData">
+      <obj_property name="ElementShortName">axisData[15:0]</obj_property>
+      <obj_property name="ObjectShortName">axisData[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sdft_tb/axisValid">
+      <obj_property name="ElementShortName">axisValid</obj_property>
+      <obj_property name="ObjectShortName">axisValid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sdft_tb/freqWrReal">
+      <obj_property name="ElementShortName">freqWrReal[31:0]</obj_property>
+      <obj_property name="ObjectShortName">freqWrReal[31:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">24</obj_property>
+      <obj_property name="radix_otherWidth">8</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sdft_tb/freqWrImag">
+      <obj_property name="ElementShortName">freqWrImag[31:0]</obj_property>
+      <obj_property name="ObjectShortName">freqWrImag[31:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">24</obj_property>
+      <obj_property name="radix_otherWidth">8</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sdft_tb/freqWrAddr">
+      <obj_property name="ElementShortName">freqWrAddr[8:0]</obj_property>
+      <obj_property name="ObjectShortName">freqWrAddr[8:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sdft_tb/freqWrEn">
+      <obj_property name="ElementShortName">freqWrEn</obj_property>
+      <obj_property name="ObjectShortName">freqWrEn</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sdft_tb/testData">
+      <obj_property name="ElementShortName">testData</obj_property>
+      <obj_property name="ObjectShortName">testData</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group4125">
+      <obj_property name="label">fixedToFloat</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/sdft_tb/i_dut/inst_sdft/o_axisReady">
+         <obj_property name="ElementShortName">o_axisReady</obj_property>
+         <obj_property name="ObjectShortName">o_axisReady</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sdft_tb/i_dut/inst_sdft/i_axisOldData">
+         <obj_property name="ElementShortName">i_axisOldData[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i_axisOldData[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sdft_tb/i_dut/inst_sdft/i_axisNewData">
+         <obj_property name="ElementShortName">i_axisNewData[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i_axisNewData[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sdft_tb/i_dut/inst_sdft/i_axisValid">
+         <obj_property name="ElementShortName">i_axisValid</obj_property>
+         <obj_property name="ObjectShortName">i_axisValid</obj_property>
+      </wvobject>
+      <wvobject type="other" fp_name="/sdft_tb/i_dut/inst_sdft/r_n">
+         <obj_property name="ElementShortName">r_n</obj_property>
+         <obj_property name="ObjectShortName">r_n</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sdft_tb/i_dut/inst_fixedToFloat/M_AXIS_RESULT_tready">
+         <obj_property name="ElementShortName">M_AXIS_RESULT_tready</obj_property>
+         <obj_property name="ObjectShortName">M_AXIS_RESULT_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sdft_tb/i_dut/inst_fixedToFloat/M_AXIS_RESULT_tvalid">
+         <obj_property name="ElementShortName">M_AXIS_RESULT_tvalid</obj_property>
+         <obj_property name="ObjectShortName">M_AXIS_RESULT_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sdft_tb/i_dut/inst_fixedToFloat/M_AXIS_RESULT_tdata">
+         <obj_property name="ElementShortName">M_AXIS_RESULT_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">M_AXIS_RESULT_tdata[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sdft_tb/i_dut/inst_fixedToFloat/S_AXIS_A_tdata">
+         <obj_property name="ElementShortName">S_AXIS_A_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">S_AXIS_A_tdata[15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">10</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sdft_tb/i_dut/inst_fixedToFloat/S_AXIS_A_tready">
+         <obj_property name="ElementShortName">S_AXIS_A_tready</obj_property>
+         <obj_property name="ObjectShortName">S_AXIS_A_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sdft_tb/i_dut/inst_fixedToFloat/S_AXIS_A_tvalid">
+         <obj_property name="ElementShortName">S_AXIS_A_tvalid</obj_property>
+         <obj_property name="ObjectShortName">S_AXIS_A_tvalid</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/sdft_tb/i_dut/inst_sdft/i_axisNewData">
+      <obj_property name="ElementShortName">i_axisNewData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_axisNewData[31:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">24</obj_property>
+      <obj_property name="radix_otherWidth">8</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sdft_tb/i_dut/inst_sdft/i_axisOldData">
+      <obj_property name="ElementShortName">i_axisOldData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_axisOldData[31:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">24</obj_property>
+      <obj_property name="radix_otherWidth">8</obj_property>
+   </wvobject>
+</wave_config>

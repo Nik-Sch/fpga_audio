@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="transform_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="transform_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="28.792560101 ms"></ZoomEndTime>
+      <Cursor1Time time="8.899490000 ms"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="326"></NameColumnWidth>
+      <ValueColumnWidth column_width="133"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wvobject type="logic" fp_name="/transform_tb/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/transform_tb/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/transform_tb/axisInReady">
+      <obj_property name="ElementShortName">axisInReady</obj_property>
+      <obj_property name="ObjectShortName">axisInReady</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/transform_tb/axisInData">
+      <obj_property name="ElementShortName">axisInData[15:0]</obj_property>
+      <obj_property name="ObjectShortName">axisInData[15:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">4096.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_OVERLAP</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group4349">
+      <obj_property name="label">sidft</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/transform_tb/axisOutData">
+         <obj_property name="ElementShortName">axisOutData[15:0]</obj_property>
+         <obj_property name="ObjectShortName">axisOutData[15:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">4.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_OVERLAP</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">10</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/transform_tb/testData">
+         <obj_property name="ElementShortName">testData</obj_property>
+         <obj_property name="ObjectShortName">testData</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/transform_tb/i_dut/inst_sidft/r_accumulator">
+         <obj_property name="ElementShortName">r_accumulator[35:0]</obj_property>
+         <obj_property name="ObjectShortName">r_accumulator[35:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+         <obj_property name="AnalogYRangeMin">-200.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">200.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_OVERLAP</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">28</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue">
+         <obj_property name="ElementShortName">r_timeValue[35:0]</obj_property>
+         <obj_property name="ObjectShortName">r_timeValue[35:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">21</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="AnalogYRangeMin">-9.34514</obj_property>
+         <obj_property name="AnalogYRRangeMax">1.88754</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_OVERLAP</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      </wvobject>
+      <wvobject type="vbus" fp_name="vbus4335">
+         <obj_property name="label">out</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue[31]">
+            <obj_property name="ElementShortName">[31]</obj_property>
+            <obj_property name="ObjectShortName">[31]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue[30]">
+            <obj_property name="ElementShortName">[30]</obj_property>
+            <obj_property name="ObjectShortName">[30]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue[29]">
+            <obj_property name="ElementShortName">[29]</obj_property>
+            <obj_property name="ObjectShortName">[29]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue[28]">
+            <obj_property name="ElementShortName">[28]</obj_property>
+            <obj_property name="ObjectShortName">[28]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue[27]">
+            <obj_property name="ElementShortName">[27]</obj_property>
+            <obj_property name="ObjectShortName">[27]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue[26]">
+            <obj_property name="ElementShortName">[26]</obj_property>
+            <obj_property name="ObjectShortName">[26]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue[25]">
+            <obj_property name="ElementShortName">[25]</obj_property>
+            <obj_property name="ObjectShortName">[25]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue[24]">
+            <obj_property name="ElementShortName">[24]</obj_property>
+            <obj_property name="ObjectShortName">[24]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue[23]">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">[23]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue[22]">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">[22]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue[21]">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">[21]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sidft/r_timeValue[20]">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">[20]</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider4348" type="divider">
+      <obj_property name="label">sdft</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group170">
+      <obj_property name="label">sdft</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/o_axisReady">
+         <obj_property name="ElementShortName">o_axisReady</obj_property>
+         <obj_property name="ObjectShortName">o_axisReady</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/i_axisValid">
+         <obj_property name="ElementShortName">i_axisValid</obj_property>
+         <obj_property name="ObjectShortName">i_axisValid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_expImag_tready">
+         <obj_property name="ElementShortName">s_axis_expImag_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_expImag_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_expImag_tvalid">
+         <obj_property name="ElementShortName">s_axis_expImag_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_expImag_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_expReal_tready">
+         <obj_property name="ElementShortName">s_axis_expReal_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_expReal_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_expReal_tvalid">
+         <obj_property name="ElementShortName">s_axis_expReal_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_expReal_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_newTime_tready">
+         <obj_property name="ElementShortName">s_axis_newTime_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_newTime_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_newTime_tvalid">
+         <obj_property name="ElementShortName">s_axis_newTime_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_newTime_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_newTime_tlast">
+         <obj_property name="ElementShortName">s_axis_newTime_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_newTime_tlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_oldFreqImag_tready">
+         <obj_property name="ElementShortName">s_axis_oldFreqImag_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_oldFreqImag_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_oldFreqImag_tvalid">
+         <obj_property name="ElementShortName">s_axis_oldFreqImag_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_oldFreqImag_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_oldFreqReal_tready">
+         <obj_property name="ElementShortName">s_axis_oldFreqReal_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_oldFreqReal_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_oldFreqReal_tvalid">
+         <obj_property name="ElementShortName">s_axis_oldFreqReal_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_oldFreqReal_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_oldTime_tready">
+         <obj_property name="ElementShortName">s_axis_oldTime_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_oldTime_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/inst_sdft_stage_wrapper/s_axis_oldTime_tvalid">
+         <obj_property name="ElementShortName">s_axis_oldTime_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_oldTime_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="other" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/r_dN">
+         <obj_property name="ElementShortName">r_dN</obj_property>
+         <obj_property name="ObjectShortName">r_dN</obj_property>
+      </wvobject>
+      <wvobject type="other" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/r_qN">
+         <obj_property name="ElementShortName">r_qN</obj_property>
+         <obj_property name="ObjectShortName">r_qN</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/transform_tb/i_dut/inst_sdft_top/inst_sdft/r_startStage">
+         <obj_property name="ElementShortName">r_startStage</obj_property>
+         <obj_property name="ObjectShortName">r_startStage</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

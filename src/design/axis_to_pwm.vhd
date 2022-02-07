@@ -41,6 +41,7 @@ begin
       if o_axisReady and i_axisDataValid then
         r_newData <= i_axisData(r_newData'left downto 0);
       end if;
+
       if r_counter = (r_counter'left downto 0 => '1') then
         r_data <= r_newData;
       end if;

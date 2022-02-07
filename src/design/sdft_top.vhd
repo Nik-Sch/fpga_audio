@@ -1,4 +1,5 @@
 library ieee;
+use ieee.numeric_std.all;
 use ieee.numeric_std_unsigned.all;
 use ieee.std_logic_1164.all;
 
@@ -14,20 +15,22 @@ entity sdft_top is
     i_axisData  : in  std_ulogic_vector(16 - 1 downto 0);
     i_axisValid : in  std_ulogic;
 
-    -- for test
-    o_freqWrReal : out std_ulogic_vector(32 - 1 downto 0);
-    o_freqWrImag : out std_ulogic_vector(32 - 1 downto 0);
-    o_freqWrAddr : out std_ulogic_vector(9 - 1 downto 0);
-    o_freqWrEn   : out std_ulogic
+
+    o_axisQImagData  : out std_ulogic_vector(31 downto 0);
+    i_axisQImagReady : in  std_ulogic;
+    o_axisQImagValid : out std_ulogic;
+    o_axisQImagLast  : out std_ulogic;
+
+    o_axisQRealData  : out std_ulogic_vector(31 downto 0);
+    i_axisQRealReady : in  std_ulogic;
+    o_axisQRealValid : out std_ulogic;
+    o_axisQRealLast  : out std_ulogic
 
     );
 end entity;
 
 architecture rtl of sdft_top is
-  signal r_freqWrData : std_ulogic_vector(64 - 1 downto 0);
-  signal s_freqWrAddr : std_ulogic_vector(9 - 1 downto 0);
-  signal r_freqWrEn   : std_ulogic;
-
+  signal s_axisDataNormalized : signed(16 - 1 downto 0);
   signal r_countValues : integer;
 
   signal s_axisFloatValid : std_ulogic;
@@ -51,25 +54,21 @@ architecture rtl of sdft_top is
   signal s_axisReady   : std_ulogic;
   signal r_axisNewData : std_ulogic_vector(31 downto 0);
   signal r_axisOldData : std_ulogic_vector(31 downto 0);
-
-  signal s_axisQImagData  : std_ulogic_vector(31 downto 0);
-  signal r_axisQImagReady : std_ulogic;
-  signal s_axisQImagValid : std_ulogic;
-
-  signal s_axisQRealData  : std_ulogic_vector(31 downto 0);
-  signal r_axisQRealReady : std_ulogic;
-  signal s_axisQRealValid : std_ulogic;
 begin
 
-  inst_fixedToFloat : entity work.fixedToFloat
+  -- -2048 - 2047
+  s_axisDataNormalized <= signed(i_axisData) - to_signed(2048, 16);
+
+  -- 10 fractional bits: -2 - 1.99
+  -- needs a block design wrapper because xsim would otherwise crash...
+  inst_fixedToFloat : entity work.fixedToFloatBD_wrapper
     port map (
       aclk    => i_clk,
       aresetn => not i_reset,
 
       s_axis_a_tvalid => i_axisValid,
       s_axis_a_tready => o_axisReady,
-      s_axis_a_tdata(15 downto 0)  => i_axisData,
-      s_axis_a_tdata(31 downto 16)  => (others => '0'),
+      s_axis_a_tdata  => std_ulogic_vector(s_axisDataNormalized),
 
       m_axis_result_tvalid => s_axisFloatValid,
       m_axis_result_tready => s_axisFloatReady,
@@ -84,20 +83,21 @@ begin
       s_axis_tvalid => s_axisFloatValid,
       s_axis_tready => s_axisFloatReady,
       s_axis_tdata  => s_axisFloatData,
+      s_axis_tlast  => '0',
 
       m_axis_tvalid(1)           => s_axisPreFifoValid,
-      m_axis_tvalid(0)          => s_axisNewValueValid,
+      m_axis_tvalid(0)           => s_axisNewValueValid,
       m_axis_tready(1)           => s_axisPreFifoReady,
-      m_axis_tready(0)          => r_axisNewValueReady,
+      m_axis_tready(0)           => r_axisNewValueReady,
       m_axis_tdata(63 downto 32) => s_axisPreFifoData,
-      m_axis_tdata(31 downto 0) => s_axisNewValueData
+      m_axis_tdata(31 downto 0)  => s_axisNewValueData
 
       );
 
   inst_axisFifo : entity work.axisFifo
     port map (
-      s_axis_aresetn => i_clk,
-      s_axis_aclk    => not i_reset,
+      s_axis_aclk    => i_clk,
+      s_axis_aresetn => not i_reset,
 
       s_axis_tvalid => s_axisPreFifoValid,
       s_axis_tready => s_axisPreFifoReady,
@@ -109,6 +109,7 @@ begin
       );
 
 
+  -- max freq: -1024 - 1023.99
   inst_sdft : entity work.sdft
     generic map (
       g_N => g_N
@@ -122,58 +123,21 @@ begin
       i_axisOldData => r_axisOldData,
       i_axisValid   => r_axisValid,
 
-      o_qAddress       => s_freqWrAddr,
-      o_axisQImagData  => s_axisQImagData,
-      i_axisQImagReady => r_axisQImagReady,
-      o_axisQImagValid => s_axisQImagValid,
+      o_axisQImagData  => o_axisQImagData,
+      i_axisQImagReady => i_axisQImagReady,
+      o_axisQImagValid => o_axisQImagValid,
+      o_axisQImagLast  => o_axisQImagLast,
 
-      o_axisQRealData  => s_axisQRealData,
-      i_axisQRealReady => r_axisQRealReady,
-      o_axisQRealValid => s_axisQRealValid
+      o_axisQRealData  => o_axisQRealData,
+      i_axisQRealReady => i_axisQRealReady,
+      o_axisQRealValid => o_axisQRealValid,
+      o_axisQRealLast  => o_axisQRealLast
       );
-
-
-  inst_frequencyRam : entity work.frequencyRam
-    port map (
-      clka  => i_clk,
-      wea   => r_freqWrEn,
-      addra => s_freqWrAddr,
-      dina  => r_freqWrData,
-
-      clkb  => i_clk,
-      addrb => (others => '0'),
-      doutb => open
-      );
-
-  o_freqWrEn   <= r_freqWrEn;
-  o_freqWrAddr <= s_freqWrAddr;
-  o_freqWrReal <= r_freqWrData(63 downto 32);
-  o_freqWrImag <= r_freqWrData(31 downto 0);
 
   --vhdl-linter-parameter-next-line r_axisNewData r_axisOldData r_freqWrData
   p_reg : process(i_clk, i_reset)
   begin
     if rising_edge(i_clk) then
-      r_freqWrEn <= '0';
-
-      -- wait for result
-      if r_axisQRealReady and s_axisQRealValid then
-        r_axisQRealReady           <= '0';
-        r_freqWrData(63 downto 32) <= s_axisQRealData;
-      end if;
-
-      if r_axisQImagReady and s_axisQImagValid then
-        r_axisQImagReady          <= '0';
-        r_freqWrData(31 downto 0) <= s_axisQImagData;
-      end if;
-
-      if r_axisQRealReady = '0' and r_axisQImagReady = '0' then
-        r_freqWrEn       <= '1';
-        r_axisQRealReady <= '1';
-        r_axisQImagReady <= '1';
-      end if;
-
-
       if r_axisNewValueReady = '1' and s_axisNewValueValid = '1' and r_countValues < g_N then
         r_countValues <= r_countValues + 1;
 
@@ -208,9 +172,6 @@ begin
     end if;
 
     if i_reset then
-      r_axisQRealReady        <= '1';
-      r_axisQImagReady        <= '1';
-      r_freqWrEn              <= '0';
       r_axisOldValueFifoReady <= '0';
       r_axisNewValueReady     <= '1';
       r_axisValid             <= '0';

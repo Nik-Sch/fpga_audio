@@ -1,4 +1,4 @@
-module sdft_tb;
+module transform_tb;
 
   `define PI 3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862
 
@@ -23,13 +23,12 @@ module sdft_tb;
 
   logic clk;
   logic reset;
-  logic axisReady;
-  logic [15:0] axisData = 0;
-  logic axisValid = 0;
-  logic[31:0] freqWrReal;
-  logic[31:0] freqWrImag;
-  logic[8:0] freqWrAddr = 0;
-  logic freqWrEn = 0;
+  logic axisInReady;
+  logic [15:0] axisInData = 0;
+  logic axisInValid = 0;
+  logic axisOutReady;
+  logic [15:0] axisOutData = 0;
+  logic axisOutValid = 0;
 
   // clock gen
   always #(10/2) clk = ~clk;
@@ -37,20 +36,19 @@ module sdft_tb;
     clk = 1;
   end
 
-  sdft_top #(
+  transform_top #(
     .g_N(512)
   ) i_dut (
     .i_clk       (clk),
     .i_reset     (reset),
 
-    .o_axisReady (axisReady),
-    .i_axisData  (axisData),
-    .i_axisValid (axisValid),
+    .o_axisInReady (axisInReady),
+    .i_axisInData  (axisInData),
+    .i_axisInValid (axisInValid),
 
-    .o_freqWrReal(freqWrReal),
-    .o_freqWrImag(freqWrImag),
-    .o_freqWrAddr(freqWrAddr),
-    .o_freqWrEn  (freqWrEn)
+    .i_axisOutReady (axisOutReady),
+    .o_axisOutData  (axisOutData),
+    .o_axisOutValid (axisOutValid)
   );
 
   t_testData testData;
@@ -68,9 +66,9 @@ module sdft_tb;
 
     testData = createTestData();
     for (int i = 0; i < $size(testData.data); i += 1) begin
-      axisData[11:0] = testData.data[i];
-      axisValid = 1;
-      while (!axisReady) begin
+      axisInData[11:0] = testData.data[i];
+      axisInValid = 1;
+      while (!axisInReady) begin
         @(negedge clk);
       end
       @(negedge clk);
@@ -79,33 +77,20 @@ module sdft_tb;
 
   // write to file
   initial begin
-    int realFD;
-    int imagFD;
+    int outFD;
     @(negedge reset);
-    realFD = $fopen("real.data", "w");
-    imagFD = $fopen("complex.data", "w");
+    outFD = $fopen("out.data", "w");
+    axisOutReady = 1;
 
     for (int i = 0; i < $size(testData.data); i += 1) begin
-      for (int n = 0; n < 512; n += 1) begin
-        while (!freqWrEn) begin
-          @(negedge clk);
-        end
-        if (n != freqWrAddr) begin
-          $display("t=%0d, n=%0d, wr address is wrong: %0d @%01t", i, n, freqWrAddr, $time);
-          $finish();
-        end else begin
-          $display("t=%0d, n=%0d wrote %f+j%f @%01t", i, n, $bitstoshortreal(freqWrReal), $bitstoshortreal(freqWrImag), $time);
-        end
-        $fwrite(realFD, "%g,", $bitstoshortreal(freqWrReal));
-        $fwrite(imagFD, "%g,", $bitstoshortreal(freqWrImag));
+      while (!axisOutValid) begin
         @(negedge clk);
       end
-        $fwrite(realFD, "\n");
-        $fwrite(imagFD, "\n");
+      $fwrite(outFD, "%g,", axisOutData);
+      @(negedge clk);
     end
 
-    $fclose(realFD);
-    $fclose(imagFD);
+    $fclose(outFD);
   end
 
 endmodule
